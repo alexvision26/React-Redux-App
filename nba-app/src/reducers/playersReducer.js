@@ -1,3 +1,5 @@
+import { FETCH_PLAYER, UPDATE_PLAYER, FETCH_STATS, UPDATE_STATS, SET_ERROR } from '../actions/index';
+
 export const initialState = {
     player: [],
     stats: [],
@@ -7,6 +9,19 @@ export const initialState = {
 
 export const playersReducer = (state = initialState, action) => {
     switch(action.type) {
+        case FETCH_PLAYER:
+            return {
+                ...state,
+                isFetchingData: true,
+                player: []
+            }
+        case UPDATE_PLAYER:
+            return {
+                ...state,
+                player: [action.payload],
+                isFetchingData: false
+            }
+
         default:
             return{
                 ...state
