@@ -25,7 +25,7 @@ const Player = props => {
                 <div>
                     {props.player.map(item => {
                         return (
-                            <div>
+                            <div className='player-card'>
                                 <h4>{`${item.first_name} ${item.last_name}`}</h4>
                                 <p>Height: {`${item.height_feet}ft. ${item.height_inches}in.`}</p>
                                 <p>Position: {positionDisplay(item.position)}</p>
