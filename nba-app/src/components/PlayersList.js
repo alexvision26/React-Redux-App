@@ -9,15 +9,9 @@ const PlayerList = props => {
     const [searchF, setSearchF] = useState('')
     const [searchL, setSearchL] = useState('')
 
-    // const handleGetPlayer = e => {
-    //     e.preventDefault();
-    //     props.getPlayer();
-    // }
-
     const handleChangeF = e => {
         e.preventDefault();
         setSearchF(e.target.value)
-        // console.log(searchF)
     }
 
     const handleChangeL = e => {
@@ -27,19 +21,17 @@ const PlayerList = props => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        setNewFirst(searchF)
-        setNewLast(searchL)
-        console.log(newFirst, newLast)
-        props.getPlayer(newFirst, newLast)
+        props.getPlayer(searchF, searchL)
     }
 
     return (
         <div>
-            <h2>NBA Players</h2>
+            <h1>NBA Players</h1>
             <form onSubmit={handleSubmit}>
-                <label htmlFor='fName'>Search by name: <input onChange={handleChangeF} id='fName' name='fName'></input></label>
+                <label htmlFor='fName'>First Name:<br/> <input onChange={handleChangeF} id='fName' name='fName'></input></label>
             <br/>
-                <label htmlFor='lName'>Search by name: <input onChange={handleChangeL} id='lName' name='lName'></input></label><button>Search</button>
+                <label htmlFor='lName'>Last Name:<br/> <input onChange={handleChangeL} id='lName' name='lName'></input></label>
+                <br/><button>Search</button>
                 </form>
             <br/>
             {/* <h3>{newFirst} {newLast}</h3> */}

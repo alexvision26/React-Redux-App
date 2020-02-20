@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const Player = props => {
-    console.log(props, props.player.length)
+    // console.log(props, props.player.length)
 
     const positionDisplay = p => {
             if (p == 'C') {
@@ -21,20 +21,15 @@ const Player = props => {
 
     return (
         <div>
-            {props.player.length > 0 ? (
-                <div>
-                    {props.player.map(item => {
-                        return (
-                            <div className='player-card'>
-                                <h4>{`${item.first_name} ${item.last_name}`}</h4>
-                                <p>Height: {`${item.height_feet}ft. ${item.height_inches}in.`}</p>
-                                <p>Position: {positionDisplay(item.position)}</p>
-                            </div>
-                        )
-                    })}
-                </div>
-            ) : (
+            {props.player.id ? (
+
+                <div className='player-card'>
+                <h4>{`${props.player.first_name} ${props.player.last_name}`}</h4>
+                <p>Height: {`${props.player.height_feet}ft. ${props.player.height_inches}in.`}</p>
+                <p>Position: {positionDisplay(props.player.position)}</p></div> ) : (
+
                 <div></div>
+
             )}
             
         </div>

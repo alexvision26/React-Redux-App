@@ -1,7 +1,7 @@
 import { FETCH_PLAYER, UPDATE_PLAYER, FETCH_STATS, UPDATE_STATS, SET_ERROR } from '../actions/index';
 
 export const initialState = {
-    player: [],
+    player: {},
     stats: [],
     isFetchingData: false,
     error: ''
@@ -13,12 +13,11 @@ export const playersReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isFetchingData: true,
-                player: []
             }
         case UPDATE_PLAYER:
             return {
                 ...state,
-                player: [action.payload],
+                player: action.payload,
                 isFetchingData: false
             }
 
