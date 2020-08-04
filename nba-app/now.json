@@ -1,0 +1,19 @@
+{
+    "version": 2,
+    "name": "nba-app",
+    "builds": [
+      { 
+       "src": "nba-app/package.json", 
+       "use": "@now/static-build", 
+       "config": {
+          "distDir": "build"
+          } 
+       }
+      ],
+    "routes": [
+        { 
+           "src": "/(.*)", 
+           "dest": "nba-app/$1" 
+        }
+    ]
+}
